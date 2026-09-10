@@ -799,6 +799,8 @@ body:hover .cursor-glow { opacity: 1; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
@@ -1115,6 +1117,7 @@ body:hover .cursor-glow { opacity: 1; }
 
 @media (max-width: 560px) {
   .services-grid { grid-template-columns: 1fr; }
+  .numbers-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-links { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { gap: 20px; }
   .stat-divider { display: none; }
