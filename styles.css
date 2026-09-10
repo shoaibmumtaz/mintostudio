@@ -797,7 +797,7 @@ body:hover .cursor-glow { opacity: 1; }
 }
 .numbers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   position: relative;
   z-index: 2;
