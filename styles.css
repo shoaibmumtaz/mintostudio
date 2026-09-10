@@ -524,6 +524,17 @@ body:hover .cursor-glow { opacity: 1; }
   isolation: isolate;
 }
 .game-card-large .game-art { aspect-ratio: 21 / 9; }
+.game-art-image::before,
+.game-art-image::after { display: none; }
+.game-art-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s var(--ease);
+}
+.game-card:hover .game-art-image img { transform: scale(1.04); }
+.game-art-image img[src*="happy-jelly"] { object-position: center 62%; }
 .game-art::after {
   content: '';
   position: absolute;
