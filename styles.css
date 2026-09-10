@@ -521,6 +521,7 @@ body:hover .cursor-glow { opacity: 1; }
   aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 .game-card-large .game-art { aspect-ratio: 21 / 9; }
 .game-art::after {
@@ -529,6 +530,50 @@ body:hover .cursor-glow { opacity: 1; }
   inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(11, 18, 32, 0.7) 100%);
 }
+.game-art::before {
+  content: '';
+  position: absolute;
+  width: 58%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  right: 8%;
+  top: -28%;
+  box-shadow: 0 0 0 28px rgba(255, 255, 255, 0.04), 0 0 0 56px rgba(255, 255, 255, 0.025);
+  z-index: 1;
+}
+.game-art-copy {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(11, 18, 32, 0.48);
+}
+.game-art-copy span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 4px;
+}
+.game-art-copy strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(22px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.game-art-copy small {
+  margin-top: 7px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.game-card:not(.game-card-large) .game-art-copy { left: 20px; bottom: 18px; }
+.game-card:not(.game-card-large) .game-art-copy strong { font-size: 27px; }
 .art-aurora {
   background:
     radial-gradient(circle at 30% 40%, #60a5fa 0%, transparent 50%),
@@ -611,6 +656,18 @@ body:hover .cursor-glow { opacity: 1; }
   border-radius: 6px;
   color: var(--ink-3);
 }
+.game-detail {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.game-detail strong { color: var(--ink-3); font-weight: 600; }
 
 /* ===== SERVICES ===== */
 .services { background: var(--bg-soft); }
@@ -973,8 +1030,8 @@ body:hover .cursor-glow { opacity: 1; }
 
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
 .reveal.visible {
